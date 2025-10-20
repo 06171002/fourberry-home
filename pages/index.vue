@@ -1,10 +1,106 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  // --- Hero 섹션 타임라인 애니메이션 ---
+
+  // 1. 애니메이션 시작 전 초기 상태 설정
+  gsap.set('.hero-content h1, .hero-subtitle', { autoAlpha: 0, y: 40 });
+  gsap.set('.hero-background-image', { opacity: 0 });
+  gsap.set('.header', { autoAlpha: 0 }); // 헤더도 초기에 숨김
+
+  // 2. 타임라인 생성
+  const tl = gsap.timeline();
+
+  // 3. 타임라인에 모든 애니메이션을 순차적으로 추가
+  tl.to('.preloader', { // 1. 흰색 로딩 화면 사라지기
+    duration: 0.8,
+    opacity: 0,
+    onComplete: () => {
+      // 애니메이션이 끝나면 preloader를 DOM에서 제거하거나 숨깁니다.
+      document.querySelector('.preloader')?.setAttribute('style', 'display: none');
+    }
+  })
+      .to(".hero-content h1", { // 2. 슬로건 나타나기
+        duration: 1.2,
+        y: 0,
+        autoAlpha: 1,
+        ease: "power3.out"
+      }, "-=0.3") // 로딩화면이 사라지기 시작하고 0.3초 후에 시작
+      .to(".hero-subtitle", { // 3. 부제 나타나기
+        duration: 1.2,
+        y: 0,
+        autoAlpha: 1,
+        ease: "power3.out"
+      }, "-=0.9")
+      .to(".hero-background-image", { // 4. 배경 이미지 나타나기
+        duration: 2.5,
+        clipPath: 'ellipse(150% 150% at 50% 100%)',
+        opacity: 1,
+        ease: "power2.inOut"
+      }, "<0.2")
+      .to('.header', { // 5. 헤더 나타나기
+        duration: 1.0,
+        autoAlpha: 1,
+      }, "-=1.5"); // 바로 앞 애니메이션(subtitle) 시작 0.2초 후에 시작
+
+
+  // --- 이하 스크롤 트리거 애니메이션 (기존과 동일) ---
+  gsap.utils.toArray('.section-title, .content-section h2, .cta-section h2').forEach(elem => {
+    // ... (이하 스크롤 애니메이션 코드는 그대로 유지)
+    const el = elem as HTMLElement;
+    gsap.from(el, {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+      }
+    });
+  });
+
+  gsap.utils.toArray('.area-card').forEach((card, index) => {
+    const el = card as HTMLElement;
+    gsap.from(el, {
+      y: 60,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+      },
+      delay: index * 0.1
+    });
+  });
+
+  gsap.utils.toArray('.content-section .section-description, .solution-cards, .details-button, .cta-section .contact-button').forEach(elem => {
+    const el = elem as HTMLElement;
+    gsap.from(el, {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+      }
+    });
+  });
+});
 </script>
 
 <template>
   <div class="homepage">
     <section class="hero-section">
-      <div class="hero-overlay"></div>
+      <div class="hero-background-image"></div>
+
       <div class="hero-content">
         <h1>
           한 발 앞선 IT 서비스로<br />
@@ -98,7 +194,7 @@
   text-align: center;
 }
 
-/* ============== Hero 섹션 스타일 ============== */
+/* ============== Hero 섹션 스타일 (수정) ============== */
 .hero-section {
   height: 100vh;
   display: flex;
@@ -106,23 +202,34 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
   position: relative;
-  background-color: #333; /* 배경 이미지가 없을 경우 대비 */
+  overflow: hidden;
+  /* background-color를 제거합니다. 초기 화면은 preloader가 담당합니다. */
 }
 
-.hero-overlay {
+/* 1. 배경 이미지를 위한 스타일 추가 */
+.hero-background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #007aff;
+  background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  /* GSAP에서 제어할 것이므로 초기 상태는 스크립트에서 설정 */
+  clip-path: ellipse(0% 0% at 50% 100%);
 }
 
+/* 2. 기존 hero-overlay 스타일은 삭제 */
+
+/* 3. hero-content에 z-index 추가 */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* 텍스트가 배경 이미지보다 위에 오도록 설정 */
+  color: #000000;
 }
 
 .hero-section h1 {
