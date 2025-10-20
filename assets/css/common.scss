@@ -1,0 +1,14 @@
+/* 전역 스크롤/접근성 보조 */
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+
+/* 스킵 링크(접근성) */
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.sr-only:focus { position:static; width:auto; height:auto; margin:0; clip:auto; }
+
+/* (선택) 스크롤바 */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,.2); border-radius: 10px; }
