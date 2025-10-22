@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   // ✅ 전역 CSS 등록 (Tailwind + 공통 SCSS)
   css: [
     '~/assets/css/tailwind.css',
-    '~/assets/css/common.scss',
+    '~/assets/scss/common.scss',
   ],
 
   // ✅ SSG (Static Site Generation)

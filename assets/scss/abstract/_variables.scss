@@ -1,0 +1,39 @@
+/*순수 SCSS 코드 내에서만 사용되는 특정 값(예 : 애니메이션 타이밍 값, SCSS 믹스인/함수에 필요한 값)을 정의할 때 */// assets/scss/abstract/_variables.scss
+
+/* 1. Tailwind 색상 변수 정의
+  - 역할: Tailwind config에 정의된 핵심 색상을 SCSS 코드 내부에서 $변수 형태로 사용할 수 있게 합니다.
+  - 사용 이유: @function color-with-opacity($color, $opacity) 등을 사용할 때 필요합니다.
+  이 색상 변수들이 일반 CSS가 할 수 없는 '색상연산'을 가능하게 해준다.
+  Tailwind.config.js에 색상 추가할 때마다 여기에도 추가해주세요~~
+*/
+// --- 브랜드 컬러 ---
+$primary: #003da5;      
+$secondary: #0084d5;    
+$accent: #071e2e;       
+
+// --- 중립톤 ---
+$background: #ffffff;   // 전체 배경
+$surface: #f9fafb;      // 섹션·카드 배경
+$border: #e5e7eb;       // 구분선
+$text: #111827;         // 기본 본문 텍스트
+$subtext: #6b7280;      // 서브 텍스트
+$muted: #9ca3af;        // 비활성, 힌트 텍스트
+
+// --- Gray 명조 ---
+$gray-light: #f3f4f6;   // 배경용 (surface보다 살짝 진함)
+$gray-mid: #9ca3af;     // 일반 텍스트, 아이콘용
+$gray-dark: #374151;    // 제목, 강조 텍스트
+$gray-deep: #111827;    // 거의 블랙 (헤드라인)
+
+/* 2. SCSS 코드 전용 변수 정의
+  - 역할: Tailwind 클래스로 처리하기 어렵거나 SCSS 믹스인/함수에만 필요한 값을 정의합니다.
+*/
+// 콘텐츠 최대 너비 (Tailwind의 max-w-7xl 등과 다른 커스텀 값이 필요할 때)
+$container-max-width: 1280px;
+
+// 트랜지션 지속 시간 (SCSS로 애니메이션을 작성할 때 일관성 유지)
+$transition-duration: 0.3s; 
+
+// 미디어 쿼리 브레이크포인트 (SCSS 믹스인을 사용해야 할 때를 대비)
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
