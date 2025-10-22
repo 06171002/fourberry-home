@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~/assets/css/common.scss';
+@import '~/assets/scss/abstract/_functions.scss';/* 1._functions 파일은 도구이므로 가장 먼저 가져옵니다. */
+@import '~/assets/scss/abstract/_variables.scss';/* 1. _variables 파일은 도구이므로 가장 먼저 가져옵니다. */
+@import '~/assets/scss/common.scss';/* 2. common 파일은 전역 스타일을 적용하므로 그 다음에 가져옵니다. */
 
 /* 예: 공통 버튼 유틸 */
 .btn-primary {

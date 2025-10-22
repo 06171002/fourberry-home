@@ -1,0 +1,31 @@
+/*값의 계산 또는 변환 로직이 필요할 때 (ex. Tailwind 클래스 없이 SCSS 내부에서 px를 rem으로 변환하거나 색상을 조작할 때*/
+// assets/scss/abstract/_functions.scss
+
+/* 1. rem() 함수 정의
+  - 역할: 픽셀(px) 값을 입력하면 rem 값으로 자동 변환해줍니다.
+  - 사용 이유: 브라우저 기본 폰트 크기(16px)를 기준으로 모든 요소를 크기 조정하여 반응형 디자인을 쉽게 만듭니다.
+*/
+@function rem($px) {
+    // 16으로 나누고 'rem' 단위를 붙여 최종 CSS 값으로 반환합니다.
+    @return calc($px / 16) + rem; 
+}
+
+/* 2. color-with-opacity() 함수 정의 (선택 사항)
+  - 역할: Tailwind의 기본 색상을 SCSS 코드 내부에서 사용할 때 투명도(opacity)를 적용합니다.
+  - 사용 이유: SCSS 파일에서 rgba() 대신 간결하게 투명도를 적용할 수 있습니다.
+*/
+@function color-with-opacity($color, $opacity) {
+    // rgba() 함수를 사용하여 색상과 투명도를 결합합니다.
+    @return rgba($color, $opacity); 
+}
+
+
+/* 3. adjust-color() 함수 정의 (추가)
+  - 역할: 기존 색상의 밝기를 조절하여 새로운 색상을 생성합니다.
+  - 사용 이유: 기본 색상에 대한 hover, active 상태 색상을 동적으로 만들 때 유용합니다.
+  - 예시: lighten($color, 10%) - 색상을 10% 밝게 만듭니다.
+*/
+@function adjust-color($color, $percentage) {
+    // 'change-color' 함수를 사용하여 lightness(밝기)만 조절합니다.
+    @return change-color($color, $lightness: $percentage); 
+}
