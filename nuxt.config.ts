@@ -27,6 +27,7 @@ export default defineNuxtConfig({
 
   // ✅ 전역 head/SEO
   app: {
+    baseURL: '/fourberry-home/',
     head: {
       titleTemplate: '%s · Company',
       meta: [
