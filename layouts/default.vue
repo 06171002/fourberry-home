@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="preloader"></div>
+    <!-- <div class="preloader"></div> -->
 
-    <AppHeader />
+    <!-- <AppHeader /> -->
     <main>
       <slot />
     </main>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>
 
