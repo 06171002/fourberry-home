@@ -8,7 +8,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <section class="bg-neutral">
+  <section>
     <div class="mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h1 class="text-4xl md:text-6xl font-bold text-primary">Hello Tailwind!</h1>
@@ -22,7 +22,7 @@ useSeoMeta({
       </div>
 
       <!-- 이미지 최적화 -->
-      <img src="~/assets/image/feature_1.svg" alt="이미지" class="rounded-2xl shadow-md" />
+<!--      <img src="~/assets/image/feature_1.svg" alt="이미지" class="rounded-2xl shadow-md" />-->
     </div>
   </section>
 
