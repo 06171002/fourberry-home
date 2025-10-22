@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     ['@nuxt/image', { format: ['webp', 'avif'] }],
     '@vueuse/nuxt',
     'unplugin-icons/nuxt',
+    '@vueuse/motion/nuxt',
   ],
 
   // ✅ 전역 CSS 등록 (Tailwind + 공통 SCSS)
