@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~/assets/css/common.scss';
+
 /* 예: 공통 버튼 유틸 */
 .btn-primary {
   @apply inline-flex items-center justify-center px-4 py-2 rounded-xl
