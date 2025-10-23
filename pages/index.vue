@@ -93,11 +93,12 @@ onMounted(() => {
     const cards = gsap.utils.toArray(panel.querySelectorAll('.area-card, .card'));
     const buttons = panel.querySelector('.details-button, .contact-button');
     const logos = panel.querySelector('.client-logos');
+    const solution = panel.querySelector('.solution-cards');
 
     // ❗ paused: true 로 생성
     const contentTl = gsap.timeline({ paused: true });
 
-    const elementsToSet = [title, description, ...cards, buttons, logos].filter(Boolean);
+    const elementsToSet = [title, description, ...cards, buttons, logos, solution].filter(Boolean);
     if (elementsToSet.length > 0) {
       gsap.set(elementsToSet, { autoAlpha: 0, y: 30 });
     }
@@ -106,6 +107,7 @@ onMounted(() => {
     if (description) contentTl.to(description, { autoAlpha: 1, y: 0, duration: 0.6 }, '<0.1');
     if (cards.length > 0) contentTl.to(cards, { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.5 }, '<0.2');
     if (logos) contentTl.to(logos, { autoAlpha: 1, y: 0, duration: 0.5 }, '<0.1');
+    if (solution) contentTl.to(solution, { autoAlpha: 1, y: 0, duration: 0.5 }, '<0.1');
     if (buttons) contentTl.to(buttons, { autoAlpha: 1, y: 0, duration: 0.4 }, '<0.1');
 
     return contentTl; // 생성된 타임라인 반환

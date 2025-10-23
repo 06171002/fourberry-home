@@ -9,7 +9,7 @@ const scrapingIconUrl = '/images/web_scraper.svg'
 
 <template>
   <BaseSection
-      class="panel h-dvh bg-white font-roman-section" text-color="#111827">
+      class="panel h-dvh bg-white border-t border-black font-roman-section" text-color="#111827">
   <div class="text-center h-full flex flex-col justify-center">
     <h2 class="text-5xl md:text-7xl font-extrabold mb-6 section-title text-gray-900">SOLUTION PROGRAM</h2>
     <p class="text-lg md:text-xl text-gray-700 mb-10 md:mb-12 leading-relaxed section-description large">

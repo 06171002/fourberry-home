@@ -1,8 +1,8 @@
 <template>
   <BaseSection
-      class="panel h-dvh bg-white"  text-color="#111827" >      <div class="text-center h-full flex flex-col justify-center">
+      class="panel h-dvh bg-white border-t border-black font-roman-section"  text-color="#111827" >      <div class="text-center h-full flex flex-col justify-center">
     <h2 class="text-5xl md:text-7xl font-extrabold mb-6 section-title text-gray-900">
-      시스템 통합 및 유지보수 (SI/SM)
+      System Integration
     </h2>
     <p class="text-lg md:text-xl text-gray-700 mb-10 md:mb-12 leading-relaxed section-description large">
       다년간 축적된 경험과 기술력을 바탕으로 고객의 비즈니스 환경에 최적화된 시스템을
@@ -28,3 +28,9 @@
 // ✨ 5. 배경 이미지 import 제거
 // import bgImage2 from '../public/images/2.jpg'
 </script>
+
+<style scoped>
+.font-roman-section {
+  font-family: "Roman";
+}
+</style>
