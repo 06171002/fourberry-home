@@ -35,7 +35,18 @@ export default {
       },
       // 2. 폰트 정의 (Font Family): 정의하신 폰트 스택을 유지합니다.
       fontFamily: {
-        sans: ['Pretendard','Noto Sans KR','system-ui','sans-serif'],
+        sans: [
+          'DM Sans', // 사용자 정의 웹 폰트
+          '-apple-system', // 시스템 폰트 시작
+          'BlinkMacSystemFont',
+          '"Segoe UI"', // 띄어쓰기가 있으므로 따옴표 사용
+          'Roboto',
+          'Oxygen-Sans',
+          'Ubuntu',
+          'Cantarell',
+          '"Helvetica Neue"', // 띄어쓰기가 있으므로 따옴표 사용
+          'sans-serif', // 마지막 fallback
+        ],
       },
       // 3. 테두리 둥글기 (Border Radius): 정의하신 2xl 값을 유지합니다.
       borderRadius: {
