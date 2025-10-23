@@ -199,7 +199,7 @@ defineExpose({
 <style scoped>
 /* 기존 스타일 유지 */
 .about-us-title {
-  font-family: "Roman", Pretendard, sans-serif;
+  font-family: "Roman";
 }
 .area-card-image {
   width: 100%;
