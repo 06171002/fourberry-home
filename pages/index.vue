@@ -126,7 +126,7 @@ onMounted(() => {
 
     // ❗ 4. 패널 인덱스에 따라 헤더 테마 변경
     // index 1이 'ABOUT US' 섹션입니다.
-    if (toIndex === 1) {
+    if (toIndex === 1 || toIndex === 2) {
       headerTheme.value = 'dark'; // 검은색 텍스트
     } else {
       headerTheme.value = 'light'; // 흰색 텍스트
