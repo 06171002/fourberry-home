@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Observer } from 'gsap/Observer'
 import { useHeaderTheme } from '~/composables/useHeaderTheme'
+import type SectionAbout from "~/components/HomeSection/SectionAbout.vue";
 
 // 페이지 메타 정의: home 레이아웃 사용
 definePageMeta({
@@ -12,8 +13,11 @@ definePageMeta({
 
 const mainContainer = ref<HTMLElement | null>(null);
 
+interface SectionAboutExposed {
+  businessAreas: Ref<HTMLElement | null>;
+}
 // 2. SectionAbout 컴포넌트 자체를 참조할 ref를 생성합니다.
-const sectionAboutRef = ref(null);
+const sectionAboutRef = ref<InstanceType<typeof SectionAbout> & SectionAboutExposed | null>(null);
 
 // 3. businessAreas ref를 자식 컴포넌트에서 가져오도록 computed로 변경합니다.
 const businessAreas = computed(() => sectionAboutRef.value?.businessAreas);
