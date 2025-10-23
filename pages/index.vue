@@ -226,7 +226,7 @@ onUnmounted(() => {
         class="panel h-dvh bg-white"
         text-color="#111827" >
       <div class="text-center h-full flex flex-col justify-center">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 section-title">ABOUT US</h2>
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 section-title about-us-title">ABOUT US</h2>
         <p class="text-lg md:text-xl text-gray-700 mb-12 md:mb-16 leading-relaxed section-description">
           포베리는 사람 중심의 IT 기술 발전을 위해
           AICBM(AI, IoT, Cloud, Big Data, Mobile) 중심의 사업에 매진하고 있습니다.
@@ -353,6 +353,10 @@ onUnmounted(() => {
 /* 히어로 섹션 텍스트 그림자 (배경 이미지 위에 잘 보이도록) */
 .home-hero h1, .home-hero .hero-subtitle {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-us-title {
+  font-family: "Roman", Pretendard, sans-serif; /* 폰트 적용 및 대체 폰트 지정 */
 }
 
 /* ========== ✨ ABOUT US 섹션 스타일 수정 ========== */

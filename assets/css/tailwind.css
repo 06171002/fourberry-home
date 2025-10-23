@@ -11,3 +11,12 @@
   @apply inline-flex items-center justify-center px-4 py-2 rounded-xl
          bg-primary text-white hover:bg-blue-700 transition;
 }
+
+@font-face {
+    font-family: 'Roman';
+    src: url('../fonts/aboutUs_2.woff2') format('woff2'), /* 실제 파일 경로로 수정 */
+    url('../fonts/aboutUs_1.woff') format('woff');  /* 실제 파일 경로로 수정 */
+    font-weight: 900; /* 예시 굵기 */
+    font-style: normal;
+    font-display: swap; /* 폰트 로딩 중 대체 폰트 표시 */
+}
