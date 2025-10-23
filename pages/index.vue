@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 // ❗ ScrollTrigger와 함께 Observer를 import 합니다.
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Observer } from 'gsap/Observer'
+import { useHeaderTheme } from '~/composables/useHeaderTheme'
 
 // import bgImage1 from '../assets/image/1.jpg' // 더 이상 사용하지 않음
 import bgImage2 from '../assets/image/2.jpg'
@@ -17,6 +18,8 @@ definePageMeta({
 
 const mainContainer = ref<HTMLElement | null>(null);
 const businessAreas = ref<HTMLElement | null>(null);
+// ❗ 2. 헤더 테마 상태 변수 선언
+const headerTheme = useHeaderTheme()
 
 // ❗ unmount 시 정리할 타임라인과 옵저버 인스턴스를 저장할 변수
 let heroTl: gsap.core.Timeline | null = null;
@@ -39,6 +42,8 @@ const enableObserver = () => observer?.enable();
 onMounted(() => {
   // ❗ Observer 플러그인 등록
   gsap.registerPlugin(ScrollTrigger, Observer)
+
+  headerTheme.value = 'light'
 
   panels = gsap.utils.toArray<HTMLElement>('.panel');
   if (!mainContainer.value || panels.length === 0) return;
@@ -122,6 +127,14 @@ onMounted(() => {
 
     if (toIndex < 0 || toIndex >= numPanels) {
       return;
+    }
+
+    // ❗ 4. 패널 인덱스에 따라 헤더 테마 변경
+    // index 1이 'ABOUT US' 섹션입니다.
+    if (toIndex === 1) {
+      headerTheme.value = 'dark'; // 검은색 텍스트
+    } else {
+      headerTheme.value = 'light'; // 흰색 텍스트
     }
 
     animating = true;
