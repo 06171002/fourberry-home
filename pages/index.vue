@@ -7,9 +7,9 @@ import { Observer } from 'gsap/Observer'
 import { useHeaderTheme } from '~/composables/useHeaderTheme'
 
 // import bgImage1 from '../assets/image/1.jpg' // 더 이상 사용하지 않음
-import bgImage2 from '../assets/image/2.jpg'
-import bgImage3 from '../assets/image/3.jpg'
-import bgImage4 from '../assets/image/4.jpg'
+import bgImage2 from '../public/images/2.jpg'
+import bgImage3 from '../public/images/3.jpg'
+import bgImage4 from '../public/images/4.jpg'
 
 // 페이지 메타 정의: home 레이아웃 사용
 definePageMeta({
