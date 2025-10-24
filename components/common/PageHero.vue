@@ -38,9 +38,9 @@ defineProps({
       <h1 v-if="title" v-html="title"></h1>
       <p v-if="subtitle" class="hero-subtitle">{{ subtitle }}</p>
     </div>
-    <div v-if="isHome" class="scroll-indicator">
-      <span>Scroll Down</span>
-    </div>
+<!--    <div v-if="isHome" class="scroll-indicator">-->
+<!--      <span>Scroll Down</span>-->
+<!--    </div>-->
   </section>
 </template>
 
