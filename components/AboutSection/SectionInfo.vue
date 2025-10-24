@@ -1,11 +1,14 @@
 <template>
   <section
-    class="max-w-[1600px] mx-auto 
+    class="max-w-[1800px] mx-auto 
     /* 반응형 패딩: 모바일 px-6, 태블릿 md:px-12, 데스크톱 lg:px-20 */
     px-6 md:px-12 lg:px-20 py-24 md:py-32 
     
     /* 반응형 그리드: 태블릿까지 1단, 데스크톱(lg)부터 2단, 수직 중앙 정렬 */
-    grid md:grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center"
+    grid md:grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-background
+    
+    /* 💡 추가된 부분: 상단 마진을 크게 늘림 */
+    mt-48"
   >
     <div>
       <h2
@@ -37,7 +40,5 @@
 </template>
 
 <style scoped>
-section {
-  border-top: 1px solid #e5e7eb;
-}
+
 </style>

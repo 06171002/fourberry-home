@@ -1,6 +1,6 @@
 <template>
   <!-- 배경은 전체 폭 -->
-  <section >
+  <section class="bg-surface">
     <!-- 내용만 max-w로 제한 -->
     <div class="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 lg:gap-24">

@@ -15,7 +15,7 @@ export default {
         /* 브랜드 컬러 */
         primary: '#003da5',     // 메인 블루(로고)
         secondary: '#0084d5',   // 보조 블루(로고)
-        accent: '#071e2e',      // 다크 블루 포인트
+        accent: '#082b43ff',      // 다크 블루 포인트
 
         /* 중립톤 */
         background: '#ffffff',  // 전체 배경
@@ -46,6 +46,7 @@ export default {
           'Cantarell',
           '"Helvetica Neue"', // 띄어쓰기가 있으므로 따옴표 사용
           'sans-serif', // 마지막 fallback
+          'Pretendard',
         ],
       },
       // 3. 테두리 둥글기 (Border Radius): 정의하신 2xl 값을 유지합니다.
